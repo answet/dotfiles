@@ -1,0 +1,33 @@
+#! /bin/sh
+
+pkill sxhkd
+sxhkd &
+
+pkill picom
+picom --config ~/.config/picom/picom.conf &
+
+pkill dunst
+dunst -conf ~/.config/dunst/dunstrc &
+
+xrandr --output HDMI-A-0 --primary --mode 1920x1080 --pos 1920x0 --rate 60 --output DisplayPort-0 --mode 1920x1080 --pos 0x0 --rate 60
+
+$HOME/.config/polybar/scripts/launch.sh &
+$HOME/.config/bspwm/scripts/wallpaper.sh &
+
+bspc monitor "HDMI-A-0" -d 4 5
+bspc monitor "DisplayPort-0" -d 1 2 3
+
+bspc config border_width          2
+bspc config window_gap            10
+bspc config top_padding		  0
+bspc config bottom_padding	  0
+bspc config left_padding	  0
+bspc config right_padding	  0
+
+bspc config split_ratio           0.50
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config pointer_follows_focus false
+
+bspc rule -a Spotify desktop='^2' follow=on
+bspc rule -a code-oss desktop='^4'
