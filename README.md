@@ -13,3 +13,7 @@ firefox:
 bar: polybar (lemonbar soon)
 
 launcher: rofi
+
+editor: vim/neovim
+
+ide: vscode
