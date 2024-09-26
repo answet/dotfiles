@@ -10,10 +10,8 @@ firefox:
         [penguinFox](https://github.com/p3nguin-kun/penguinFox)
         [user.js](https://github.com/arkenfox/user.js/)
 
-bar: polybar (lemonbar soon)
+bar: polybar
 
 launcher: rofi
 
 editor: vim/neovim
-
-ide: vscode
