@@ -1,22 +1,21 @@
-#
+#!/bin/sh
+# ~/.config/sxhkd/sxhkdrc
+
+# ──────────────────────────────────────────────────────
 # wm independent hotkeys
-#
+# ──────────────────────────────────────────────────────
 
 # terminal emulator
 super + Return
-	alacritty
-
-# program launcher
-super + @space
-	~/.config/rofi/launchers/type-1/launcher.sh
+	kitty
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
+# ──────────────────────────────────────────────────────
 # bspwm hotkeys
-#
+# ──────────────────────────────────────────────────────
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -38,9 +37,9 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-#
+# ──────────────────────────────────────────────────────
 # state/flags
-#
+# ──────────────────────────────────────────────────────
 
 # set the window state
 super + {t,shift + t,s,f}
@@ -50,9 +49,13 @@ super + {t,shift + t,s,f}
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
+# toggle tiled/floating
+super + shift + z
+    bspc node -t {tiled,floating}
+
+# ──────────────────────────────────────────────────────
 # focus/swap
-#
+# ──────────────────────────────────────────────────────
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -84,9 +87,9 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
+# ──────────────────────────────────────────────────────
 # preselect
-#
+# ──────────────────────────────────────────────────────
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -104,9 +107,9 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
+# ──────────────────────────────────────────────────────
 # move/resize
-#
+# ──────────────────────────────────────────────────────
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
@@ -120,34 +123,38 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-#
+# ──────────────────────────────────────────────────────
 # my binds
-#
+# ──────────────────────────────────────────────────────
+
+# Wallpaper management
+super + alt + {Left,Right,Up}
+	$HOME/Projects/wallpaper-changer/changer.sh {0,1,2}
+
+# Application launchers
+super + space
+	$HOME/.config/rofi/launchers/type-1/launcher.sh
 
 shift + alt + f
-	firefox
+	brave-browser
 
-shift + alt + t
-	~/Documents/tor-browser/Browser/start-tor-browser
-
-super + F11
-	amixer -q set Master 5%+
+# Volume controls
+super + F9
+	amixer -q set Master toggle
 
 super + F10
 	amixer -q set Master 5%-
 
-super + F9
-	amixer -q set Master toggle
+super + F11
+	amixer -q set Master 5%+
 
+# Power menu
 super + shift + s
-	~/.config/rofi/powermenu/type-2/powermenu.sh
+	$HOME/.config/rofi/powermenu/type-1/powermenu.sh
 
-shift + alt + x
-	~/.config/rofi/applets/bin/quicklinks.sh
+# Screenshots
+Print
+	maim $HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
-shift + alt + s
-	~/.config/rofi/applets/bin/screenshot.sh
-
-shift + alt + v
-	~/.config/rofi/applets/bin/volume.sh
-
+super + Print
+	maim -s | xclip -selection clipboard -t image/png
