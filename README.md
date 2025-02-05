@@ -4,7 +4,7 @@ wm: bspwm + sxhkd + picom
 
 terminal: kitty
 
-shell: zsh + oh-my-zsh[https://github.com/ohmyzsh/ohmyzsh] + spaceship-prompt[https://github.com/spaceship-prompt/spaceship-prompt]
+shell: zsh + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) + [spaceship-prompt](https://github.com/spaceship-prompt/spaceship-prompt)
 
 bar: polybar
 
