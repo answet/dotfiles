@@ -12,7 +12,7 @@ pkill polybar
 # ──────────────────────────────────────────────────────
 sxhkd &
 picom -b --experimental-backends &
-$HOME/.config/polybar/scripts/launch.sh &
+polybar &
 $HOME/Projects/wallpaper-changer/changer.sh &
 
 # ──────────────────────────────────────────────────────
