@@ -11,3 +11,5 @@ bar: polybar
 launcher: rofi
 
 editor: vim/neovim
+
+![screenshot](image.jpg)
