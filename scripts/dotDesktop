@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo "Error: You did not provide a file."
+    echo "Use: dotDesktop <file> <filename-desktop>"
+    exit 1
+fi
+
+if [[ -z "$2" ]]; then
+    echo "Error: You did not provide a filename"
+    echo "Use: dotDesktop <file> <filename-desktop>"
+    exit 1
+fi
+
+path_desktop="$HOME/.local/share/applications/$2.desktop"
+
+text_desktop="[Desktop Entry]\n
+Type=Application\n
+Categories=Application;\n
+Exec=$(pwd)/$1\n
+Name=$2\n
+"
+
+echo -e $text_desktop > $path_desktop
+echo "Success: A new .desktop file for $2 has been created at $path_desktop"

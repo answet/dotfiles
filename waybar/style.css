@@ -1,0 +1,21 @@
+@import url("/home/answet/.cache/wal/colors-waybar.css");
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+#workspaces button {
+    border-radius: 10px;
+
+    box-shadow: none;
+    border: none;
+}
+
+#workspaces button.active {
+    background: rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+}

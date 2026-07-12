@@ -1,0 +1,15 @@
+@import url("///home/answet/.cache/wal/colors-waybar.css");
+
+window {
+    background-color: @background;
+    color: @foreground;
+}
+
+#entry {
+    background-color: @color0;
+    color: @foreground;
+}
+
+#entry:selected {
+    background-color: @color12;
+}

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+MAIN="$HOME/Pictures/Wallpapers"
+
+IMAGE_TYPES=(
+  -iname "*.jpg" -o
+  -iname "*.jpeg" -o
+  -iname "*.png" -o
+  -iname "*.webp"
+)
+
+category=$(find "$MAIN" -type d | wofi --dmenu --prompt "Wallpaper folder")
+
+[ -z "$category" ] && exit
+
+find "$category" -type f \( "${IMAGE_TYPES[@]}" \) | sort -fV | nsxiv -tbi
+
+# se hace uso de ~/.config/nsxiv/exec/key-handler

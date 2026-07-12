@@ -1,0 +1,21 @@
+return {
+    wallpaper = "/home/answet/Pictures/Wallpapers/nature/a_boat_on_the_water.jpg",
+    foreground = "rgba(200,200,200,1.0)",
+    background = "rgba(37,36,37,1.0)",
+    color0 = "rgba(37,36,37,1.0)",
+    color1 = "rgba(124,130,125,1.0)",
+    color2 = "rgba(154,137,120,1.0)",
+    color3 = "rgba(126,131,129,1.0)",
+    color4 = "rgba(146,148,143,1.0)",
+    color5 = "rgba(167,154,142,1.0)",
+    color6 = "rgba(163,162,156,1.0)",
+    color7 = "rgba(200,200,200,1.0)",
+    color8 = "rgba(123,101,123,1.0)",
+    color9 = "rgba(124,130,125,1.0)",
+    color10 = "rgba(154,137,120,1.0)",
+    color11 = "rgba(126,131,129,1.0)",
+    color12 = "rgba(146,148,143,1.0)",
+    color13 = "rgba(167,154,142,1.0)",
+    color14 = "rgba(163,162,156,1.0)",
+    color15 = "rgba(200,200,200,1.0)"
+}
