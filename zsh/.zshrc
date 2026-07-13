@@ -109,6 +109,6 @@ alias la='exa -a --color=auto --icons'
 alias lt='exa --tree --color=auto --icons'
 alias fzf='fzf --height 40% --reverse'
 
-# Created by `pipx` on 2026-01-29 22:13:02
 export PATH="$PATH:/home/answet/.local/bin"
+export PATH="$HOME/.local/bin/scripts:$PATH"
 export QML_XHR_ALLOW_FILE_WRITE=1

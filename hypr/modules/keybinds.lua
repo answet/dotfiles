@@ -42,7 +42,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 hl.bind("Print",         hl.dsp.exec_cmd("hyprshot -m output -o ~/Pictures/Screenshots/"))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots/"))
 
-hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.local/bin/wallpaper-menu"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.local/bin/scripts/wallpaper-menu"))
 
 hl.bind("SUPER + F12", function ()
   local game_mode = (hl.get_config("animations.enabled") == false)
