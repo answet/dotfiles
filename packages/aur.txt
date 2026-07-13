@@ -1,0 +1,7 @@
+bibata-cursor-theme
+brave-bin
+epy-ereader-git
+localsend-bin
+oh-my-posh-bin
+pwvucontrol
+wlogout
