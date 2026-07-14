@@ -2,42 +2,50 @@
 
 set -e
 
-echo "==> Instalando paquetes oficiales..."
+install_pacman_packages() {
+    local dir="$1"
 
-sudo pacman -Syu --needed - < packages/pacman.txt
+    find "$dir" -name '*.txt' | while read -r file; do
+        sudo pacman -S --needed $(grep -vE '^\s*(#|$)' "$file")
+    done
+}
 
-if ! command -v yay >/dev/null 2>&1; then
-    echo "==> Instalando yay..."
+install_aur_packages() {
+    local file="$1"
 
-    sudo pacman -S --needed base-devel git
+    [ -f "$file" ] || return
 
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    yay -S --needed $(grep -vE '^\s*(#|$)' "$file")
+}
 
-    cd /tmp/yay
 
-    makepkg -si --noconfirm
+echo "==> Instalando paquetes pacman base..."
+install_pacman_packages packages/base/pacman
 
-    cd -
-
-    rm -rf /tmp/yay
-fi
+echo "==> Instalando yay..."
+git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
+makepkg -si --noconfirm
+cd -
+rm -rf /tmp/yay
 
 echo
-echo "==> Instalando paquetes AUR..."
-
-yay -S --needed - < packages/aur.txt
+echo "==> Instalando paquetes AUR base..."
+install_aur_packages packages/base/aur.txt
 
 echo
-echo "==> Instalando paquetes pipx..."
-
+echo "==> Instalando paquetes pipx base..."
 while read -r package; do
     [[ -z "$package" ]] && continue
     pipx install "$package"
-done < packages/pipx.txt
+done < packages/base/pipx.txt
 
-
+echo
+echo "==> Creando carpeta para wallpapers..."
 mkdir -p "$HOME/Pictures/Wallpapers/"
 
+echo
+echo "==> Instalando Oh My Zsh..."
 # Instalar Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     RUNZSH=no KEEP_ZSHRC=yes \
@@ -47,6 +55,10 @@ fi
 if [ "$SHELL" != "$(command -v zsh)" ]; then
     chsh -s "$(command -v zsh)"
 fi
+
+echo
+echo "==> Creando symlinks..."
+./link.sh
 
 echo
 echo "✔ Instalación finalizada."

@@ -109,6 +109,6 @@ alias la='eza -a --color=auto --icons auto'
 alias lt='eza --tree --color=auto --icons auto'
 alias fzf='fzf --height 40% --reverse'
 
-export PATH="$PATH:/home/answet/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.local/bin/scripts:$PATH"
 export QML_XHR_ALLOW_FILE_WRITE=1

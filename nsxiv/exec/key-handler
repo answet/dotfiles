@@ -5,8 +5,7 @@ case "$1" in
         while read file; do
             wal -i "$file"
             hyprctl hyprpaper preload "$file"
-            hyprctl hyprpaper wallpaper HDMI-A-1 ,"$file"
-            hyprctl hyprpaper wallpaper DP-1 ,"$file"
+            hyprctl hyprpaper wallpaper ,"$file"
             hyprctl hyprpaper unload unused
             $HOME/.config/hypr/scripts/colors.sh
             echo "$file" > ~/.cache/current-wallpaper

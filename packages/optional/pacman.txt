@@ -1,0 +1,10 @@
+steam
+scrcpy
+thunderbird
+libreoffice-still
+virt-manager
+qemu-desktop
+spotify-launcher
+proton-vpn-cli
+ventoy-bin
+gamescope
