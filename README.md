@@ -13,24 +13,4 @@ Mi configuración de Arch Linux + Hyprland.
 
 ## Instalación
 
-En desarrollo.
-
-## Instalar paquetes oficiales
-
-```bash
-sudo pacman -S --needed - < packages/official.txt
-```
-
-## Instalar paquetes de AUR
-
-```bash
-yay -S --needed - < packages/aur.txt
-```
-
-## Instalar aplicaciones de pipx
-
-```bash
-while read pkg; do
-    pipx install "$pkg"
-done < packages/pipx.txt
-```
+Ejecutar install.sh para instalar todos los paquetes. Luego ejecutar link.sh para crear todos los symblinks correspondientes.

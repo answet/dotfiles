@@ -103,10 +103,10 @@ source <(fzf --zsh)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias c="clear"
-alias ls="exa -l --color=auto --icons"
-alias la='exa -a --color=auto --icons'
-alias lt='exa --tree --color=auto --icons'
+alias c='clear'
+alias ls='eza -l --color=auto --icons'
+alias la='eza -a --color=auto --icons'
+alias lt='eza --tree --color=auto --icons'
 alias fzf='fzf --height 40% --reverse'
 
 export PATH="$PATH:/home/answet/.local/bin"
