@@ -104,9 +104,9 @@ source <(fzf --zsh)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c='clear'
-alias ls='eza -l --color=auto --icons'
-alias la='eza -a --color=auto --icons'
-alias lt='eza --tree --color=auto --icons'
+alias ls='eza -l --color=auto --icons auto'
+alias la='eza -a --color=auto --icons auto'
+alias lt='eza --tree --color=auto --icons auto'
 alias fzf='fzf --height 40% --reverse'
 
 export PATH="$PATH:/home/answet/.local/bin"

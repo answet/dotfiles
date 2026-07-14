@@ -4,7 +4,7 @@ set -e
 
 echo "==> Instalando paquetes oficiales..."
 
-sudo pacman -Syu --needed - < packages/official.txt
+sudo pacman -Syu --needed - < packages/pacman.txt
 
 if ! command -v yay >/dev/null 2>&1; then
     echo "==> Instalando yay..."
@@ -34,6 +34,19 @@ while read -r package; do
     [[ -z "$package" ]] && continue
     pipx install "$package"
 done < packages/pipx.txt
+
+
+mkdir -p "$HOME/Pictures/Wallpapers/"
+
+# Instalar Oh My Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    RUNZSH=no KEEP_ZSHRC=yes \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+if [ "$SHELL" != "$(command -v zsh)" ]; then
+    chsh -s "$(command -v zsh)"
+fi
 
 echo
 echo "✔ Instalación finalizada."
