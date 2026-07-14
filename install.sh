@@ -6,7 +6,7 @@ install_pacman_packages() {
     local dir="$1"
 
     find "$dir" -name '*.txt' | while read -r file; do
-        sudo pacman -S --needed $(grep -vE '^\s*(#|$)' "$file")
+        sudo pacman -S --needed --noconfirm $(grep -vE '^\s*(#|$)' "$file")
     done
 }
 
@@ -15,7 +15,7 @@ install_aur_packages() {
 
     [ -f "$file" ] || return
 
-    yay -S --needed $(grep -vE '^\s*(#|$)' "$file")
+    yay -S --needed --noconfirm $(grep -vE '^\s*(#|$)' "$file")
 }
 
 
