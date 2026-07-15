@@ -52,13 +52,23 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+echo
+echo "==> Creando symlinks..."
+./link.sh
+
 if [ "$SHELL" != "$(command -v zsh)" ]; then
     chsh -s "$(command -v zsh)"
 fi
 
-echo
-echo "==> Creando symlinks..."
-./link.sh
+read -rp "¿Querés instalar los paquetes opcionales? [y/N]: " answer
+
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+    echo "Instalando paquetes opcionales..."
+    sudo pacman -S --needed $(<packages/optional/pacman.txt)
+    yay -S --needed $(<packages/optional/aur.txt)
+else
+    echo "Omitiendo paquetes opcionales."
+fi
 
 echo
 echo "✔ Instalación finalizada."
