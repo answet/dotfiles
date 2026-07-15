@@ -56,9 +56,9 @@ echo
 echo "==> Creando symlinks..."
 ./link.sh
 
-if [ "$SHELL" != "$(command -v zsh)" ]; then
-    chsh -s "$(command -v zsh)"
-fi
+#if [ "$SHELL" != "$(command -v zsh)" ]; then
+#    chsh -s "$(command -v zsh)"
+#fi
 
 read -rp "¿Querés instalar los paquetes opcionales? [y/N]: " answer
 
@@ -69,6 +69,9 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
 else
     echo "Omitiendo paquetes opcionales."
 fi
+
+mkdir -p "$HOME/.cache/"
+echo "$HOME/dotfiles/hypr/wallpaper.jpg" > $HOME/.cache/current-wallpaper
 
 echo
 echo "✔ Instalación finalizada."
