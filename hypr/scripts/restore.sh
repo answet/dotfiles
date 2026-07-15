@@ -19,3 +19,8 @@ fi
 hyprctl hyprpaper preload "$wallpaper"
 hyprctl hyprpaper wallpaper ",$wallpaper"
 hyprctl hyprpaper unload unused
+
+wal -i $wallpaper
+
+pkill waybar
+waybar
