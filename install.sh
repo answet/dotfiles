@@ -18,7 +18,7 @@ install_aur_packages() {
 
 
 echo "==> Instalando paquetes pacman base..."
-install_pacman_packages packages/base/pacman
+install_pacman_packages packages/base/pacman.txt
 
 echo "==> Instalando yay..."
 git clone https://aur.archlinux.org/yay.git /tmp/yay
