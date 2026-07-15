@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
-
 install_pacman_packages() {
-    local dir="$1"
+    local file="$1"
 
-    find "$dir" -name '*.txt' | while read -r file; do
-        sudo pacman -S --needed --noconfirm $(grep -vE '^\s*(#|$)' "$file")
-    done
+    [ -f "$file" ] || return
+
+    sudo pacman -S --needed --noconfirm $(grep -vE '^\s*(#|$)' "$file")
 }
 
 install_aur_packages() {
@@ -56,16 +54,12 @@ echo
 echo "==> Creando symlinks..."
 ./link.sh
 
-#if [ "$SHELL" != "$(command -v zsh)" ]; then
-#    chsh -s "$(command -v zsh)"
-#fi
-
 read -rp "¿Querés instalar los paquetes opcionales? [y/N]: " answer
 
 if [[ "$answer" =~ ^[Yy]$ ]]; then
     echo "Instalando paquetes opcionales..."
-    sudo pacman -S --needed $(<packages/optional/pacman.txt)
-    yay -S --needed $(<packages/optional/aur.txt)
+    install_pacman_packages packages/optional/pacman.txt
+    install_aur_packages packages/optional/aur.txt
 else
     echo "Omitiendo paquetes opcionales."
 fi
