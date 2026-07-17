@@ -2,7 +2,7 @@
 local mainMod = "SUPER"
 local terminal = "kitty"
 local fileManager = "dolphin"
-local menu = "wofi --show drun -C ~/.config/wofi/config"
+local menu = "wofi --show drun"
 
 hl.bind(mainMod .. " + Return",    hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q",         hl.dsp.window.close())

@@ -31,5 +31,5 @@ ln -sfn "$DOTFILES/scripts" "$HOME/.local/bin/scripts"
 
 echo "Linkeando colors"
 ln -sfn "$HOME/.cache/wal/colors-waybar.css" "$CONFIG/waybar/colors.css"
-ln -sfn "$HOME/.cache/wal/colors-waybar.css" "$CONFIG/wofi/colors.css"
+ln -sfn "$HOME/.cache/wal/colors" "$CONFIG/wofi/colors"
 ln -sfn "$HOME/.cache/wal/colors-kitty.conf" "$CONFIG/kitty/colors.conf"

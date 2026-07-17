@@ -8,7 +8,7 @@ case "$1" in
             hyprctl hyprpaper wallpaper ,"$file"
             hyprctl hyprpaper unload unused
             $HOME/.config/hypr/scripts/colors.sh
-            echo "$file" > ~/.cache/current-wallpaper
+            echo "$file" > "$HOME/.cache/current-wallpaper"
         done
         ;;
 esac
